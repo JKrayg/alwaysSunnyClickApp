@@ -12,9 +12,34 @@ class App extends React.Component {
     answer: true
   }
 
-  
 
 
+clickGangMember = id => {
+  this.setState({ gang: this.state.gang.map(member => {
+    if(member.id === id) {
+      if (member.clicked === true) {
+        localStorage.setItem("streak", this.state.streak)
+        const newStreak = localStorage.getItem("streak") 
+        this.setState({
+          answer: !this.state.answer,
+          streak: parseInt(newStreak)
+        });
+        console.log(this.state.streak)
+        //debugger
+        window.location.reload()
+        
+      } else {
+        member.clicked = true
+        this.setState({
+          score: this.state.score + 1,
+          streak: this.state.streak + 1
+        });
+      }
+      
+    }
+    return member
+  }) });
+}
 
 render() {
   return (
