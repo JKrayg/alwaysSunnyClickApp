@@ -8,5 +8,17 @@
 }
 
 body {
-  background-color: #228b22c6;
+  background-color: rgb(199, 199, 199);
+}
+
+.images { 
+  transition: all .3s ease-in-out; 
+  }
+
+
+.images:hover {
+  border: 8px solid gold;
+  transform: scale(1.1);
+  box-shadow: gray 10px 15px 8px;
+  cursor: pointer;
 }
