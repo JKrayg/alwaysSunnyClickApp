@@ -3,6 +3,7 @@ import './App.css';
 import gang from "./gang.json"
 import TheGang from "./components/TheGang"
 import Header from "./components/Header"
+import Shuffle from "shuffle-array"
 
 class App extends React.Component {
   state = {
@@ -13,32 +14,56 @@ class App extends React.Component {
   }
 
 
-
-clickGangMember = id => {
+clickGangMember = (id) => {
+  Shuffle(this.state.gang)
   this.setState({ gang: this.state.gang.map(member => {
     if(member.id === id) {
       if (member.clicked === true) {
-        localStorage.setItem("streak", this.state.streak)
-        const newStreak = localStorage.getItem("streak") 
+        this.state.gang.map(member => {
+          return member.clicked = false;
+        })
         this.setState({
-          answer: !this.state.answer,
-          streak: parseInt(newStreak)
+          answer: "Failure!",
+          score: 0
         });
-        console.log(this.state.streak)
-        //debugger
-        window.location.reload()
         
       } else {
+        const newStreak = this.state.streak;
+        console.log(newStreak)
         member.clicked = true
-        this.setState({
-          score: this.state.score + 1,
-          streak: this.state.streak + 1
-        });
+        if (newStreak === this.state.score) {
+          this.setState({
+            answer: "Perfect!",
+            score: this.state.score + 1,
+            streak: this.state.score + 1
+            
+          });
+          if (newStreak === 8) {
+            this.state.gang.map(member => {
+              return member.clicked = false;
+            })
+            this.setState({
+              answer: "WINNER!",
+              score: 0,
+              streak: 0
+              
+            });
+          }
+        } else {
+          this.setState({
+            answer: "Perfect!",
+            score: this.state.score + 1
+            
+          });
+        }
+        
+          
       }
-      
     }
+    console.log(member)
     return member
-  }) });
+  })
+  });
 }
 
 render() {
@@ -48,7 +73,7 @@ render() {
         <Header 
           score = { this.state.score }
           streak = { this.state.streak }
-          answer = {this.state.answer ? "Perfect!" : "Failure!"} 
+          answer = {this.state.answer } 
             />
           {this.state.gang.map(member => (
           <TheGang

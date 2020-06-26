@@ -7,12 +7,12 @@ function Header(props) {
                 <div className = "col-md-5">
                     <h2>Sunny Gang Game</h2>
                 </div>
-                <div className = "col-md-1">
-                    <div style = {{color: "gold"}} className = "winLose">{ props.answer }</div>
+                <div className = "col-md-2">
+                    <h3 style = {{color: "gold"}} className = "winLose">{ props.answer }</h3>
                 </div>
-                <div className = "col-md-4 offset-2">
-                    <h2 style = {{marginBottom: "0", marginTop: "5px"}}>Score: {props.score} | Streak: {props.streak}</h2>
-                    <img alt = "clover" style = {{height: "50px", width: "50px", position: "absolute", top: "0", right: "30px"}} src = "https://skunkandgoattavern.com/wp-content/uploads/2017/03/four-leaf-clover-300x300.png"/>
+                <div className = "col-md-4 offset-1">
+                    <h2 style = {{marginBottom: "0", marginTop: "0"}}>Score: {props.score} | Streak: {props.streak}</h2>
+                    <img alt = "clover" style = {cloverStyle} src = "https://skunkandgoattavern.com/wp-content/uploads/2017/03/four-leaf-clover-300x300.png"/>
                 </div>
             </div>
         
@@ -30,8 +30,16 @@ const headerStyle = {
     borderBottomLeftRadius: "5px",
     borderBottomRightRadius: "5px",
     height: "100px",
-    padding: "20px 20px 20px 50px",
+    padding: "20px 0px 0px 50px",
     width: "100%"
+}
+
+const cloverStyle = {
+    height: "50px",
+    width: "50px",
+    position: "absolute",
+    top: "0",
+    right: "30px"
 }
 
 export default Header;
