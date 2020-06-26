@@ -8,7 +8,7 @@ function Header(props) {
                     <h2>Sunny Gang Game</h2>
                 </div>
                 <div className = "col-md-3">
-                    <div className = "winLose"></div>
+                    <div className = "winLose">{ props.answer }</div>
                 </div>
                 <div className = "col-md-4">
                     <h2 style = {{marginBottom: "0", marginTop: "5px"}}>Score: {props.score} | Streak: {props.streak}</h2>
