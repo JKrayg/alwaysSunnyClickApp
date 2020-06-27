@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SACF,CAEA,WACE,aACF,CAEA,KACE,oCACF","file":"main.0a2e39f6.chunk.css","sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: block;\n}\n\nbody {\n  background-color: #228b22c6;\n}"]}
